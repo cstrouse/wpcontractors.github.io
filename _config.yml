@@ -1,0 +1,21 @@
+title: "WPContractors"
+description: >-
+url: "https://www.wpcontractors.com"
+email: service@esteemed.io
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-get-json
+  - jekyll-menus
+
+jekyll_get_json:
+  - data: profiles
+    json: 'https://2e373ac4.eu.ngrok.io/dev/profiles?channel=CUN3PEEAY'
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
