@@ -19,3 +19,7 @@ defaults:
       path: ""
     values:
       layout: "default"
+sass:
+  load_paths:
+    - _sass
+    - node_modules
