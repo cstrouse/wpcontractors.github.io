@@ -17,7 +17,19 @@
 {% include head.html %}
 <body class="html front not-logged-in no-sidebars page-homepage i18n-en panel-layout-onecol panel-region-middle">
   {% include header.html %}
-  {{ content }}
+  <div id="main-wrapper">
+    <div id="main" class="main">
+      <div id="content">
+        <div class="region region-content">
+          <div class="panel-display panel-1col clearfix">
+            <div class="panel-panel panel-col">
+              {{ content }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   {% include footer.html %}
 </body>
 </html>
