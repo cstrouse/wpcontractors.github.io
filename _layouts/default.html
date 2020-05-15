@@ -15,17 +15,13 @@
   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 {% include head.html %}
-<body class="html front not-logged-in no-sidebars page-homepage i18n-en panel-layout-onecol panel-region-middle">
+<body class="html{% if page.class %} {{ page.class }}{% endif %} no-sidebars i18n-en panel-layout-onecol panel-region-middle">
   {% include header.html %}
   <div id="main-wrapper">
     <div id="main" class="main">
       <div id="content">
         <div class="region region-content">
-          <div class="panel-display panel-1col clearfix">
-            <div class="panel-panel panel-col">
-              {{ content }}
-            </div>
-          </div>
+          {{ content }}
         </div>
       </div>
     </div>
