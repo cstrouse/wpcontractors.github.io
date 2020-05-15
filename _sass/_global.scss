@@ -1,0 +1,57 @@
+/**
+ * @file
+ * Global theme styles
+ */
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    right: 0;
+    min-width: 320px;
+    margin: 0;
+    padding: 56px 0 0;
+    font-family: $fontFamily-body;
+    font-size: 16px;
+    line-height: 1.2;
+    overflow-x: hidden;
+    transition: right .5s;
+    @media #{$medium-up} {
+        padding: 76px 0 0;
+    }
+    &.is-openMenu {
+        right: $mobileMenuWidth--mobile;
+        overflow: hidden;
+        @media #{$xsmall-up} {
+            right: $mobileMenuWidth--tablet;
+        }
+    }
+    &.page-homepage {
+        padding-top: 0;
+    }
+}
+
+img {
+  max-width: 100%;
+}
+
+// Override hamburger menu size.
+i.fa.fa-bars {
+  font-size: 30px!important;
+}
+
+h4.pane-title {
+  font-family: $fontFamily-regular;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-align: left;
+
+  @media #{$small-down} {
+    font-size: 16px;
+  }
+}
