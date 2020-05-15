@@ -1,0 +1,30 @@
+language: ruby
+rvm:
+  - 2.6.3
+
+script: npm i && bundle exec jekyll build
+
+# branch whitelist, only for GitHub Pages
+branches:
+  only: develop
+
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
+
+addons:
+  apt:
+    packages:
+    - libcurl4-openssl-dev
+
+sudo: false
+cache: bundler
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_ACCESS_TOKEN
+  target-branch: master
+  local-dir: _site
+  on:
+    branch: develop
