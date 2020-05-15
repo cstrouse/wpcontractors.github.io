@@ -24,4 +24,7 @@ sass:
     - _sass
     - node_modules
 exclude:
+  - gulpfile.js
+  - package.json
+  - package-lock.json
   - vendor
