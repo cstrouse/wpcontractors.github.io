@@ -3,6 +3,11 @@ description: >-
 url: "https://www.wpcontractors.com"
 email: service@esteemed.io
 
+collections:
+  contractors:
+    output: true
+    permalink: /:collection/:name
+
 # Build settings
 markdown: kramdown
 plugins:
@@ -19,6 +24,11 @@ defaults:
       path: ""
     values:
       layout: "default"
+  -
+    scope:
+      type: "contractors"
+    values:
+      layout: "contractors"
 sass:
   load_paths:
     - _sass

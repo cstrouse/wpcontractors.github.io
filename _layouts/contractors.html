@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+{% if page.collection == "contractors" %}
+{% assign profiles = site.data.profiles | where: "titles", page.filter | slice: 0,8 %}
+<div class="block block-menu-block contractorsMenu block--none">
+  <div class="block__content">
+    <div class="menu-block-wrapper menu-block-6 menu-name-main-menu parent-mlid-669 menu-level-1 container">
+      <button type="button" class="contractorsMenu-btn js-contractorsMenuBtn jquery-once-1-processed">CHOOSE FROM BELOW...</button>
+      <ul class="menu nav nav-pills nav-stacked">
+        {% for contractor in site.contractors %}
+        <li class="leaf">
+          <a href="/contractors/{{ contractor.role | downcase | replace: " ", "-" }}" title="{{ contractor.role }}">{{ contractor.role }}</a>
+        </li>
+        {% endfor %}
+        <li class="last leaf menu-mlid-3516 menu-link-see-all">
+          <a href="/search/contractors?search=">See All</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% else %}
+{% assign profiles = site.data.profiles | where: "skills", page.filter | slice: 0,8 %}
+{% endif %}
+<div class="block block-views sectionGrey block--none">
+  <div class="block__content">
+    <div class="view view-contactors view-id-contactors view-display-id-block contractorsView container view-dom-id-43dff6175066f69b0e9e0c992e79d32a">
+      <div class="view-header">
+        <h1>Browse top rated talent</h1>
+      </div>
+      <div class="view-content">
+        <div class="slick slick--skin--default slick--optionset--contractors contractorsSlider slick-processed slick--initialized" id="slick-views-contactors-1">
+          {% for profile in profiles %}
+          {% include card.html content=profile %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<nav class="slick__arrow">
+  <button type="button" data-role="none" class="slick-prev slick-arrow slick-disabled" aria-label="previous" aria-disabled="true" style="display: inline-block;">Previous</button> <button type="button" data-role="none" class="slick-next slick-arrow" aria-label="next" aria-disabled="false" style="display: block;">Next</button>
+</nav>
