@@ -10,17 +10,17 @@
                   <img typeof="foaf:Image" src="{{ profile.image }}" width="110" height="110" alt="" />
                 </div>
                 <div class="contractorBox-name">{{ profile.name }}</div>
-                <div class="contractorBox-title">{{ profile.titles | join: ", " }}</div>
+                <div class="contractorBox-title">{{ profile.titles | map: "text" | join: ", " }}</div>
                 <div class="contractorBox-location">
                   <div class="contractorBox-location-label">Location</div>
                   <div class="contractorBox-location-value">United States</div>
                 </div>
                 <div class="contractorBox-skills tags--main">
-                  {% if profile.languages %}
+                  {% if profile.skills %}
                   <div class="item-list">
                     <ul>
-                      {% for skill in profile.languages %}
-                      <li><a href="/skills/{{ skill | downcase | replace: " ", "-" }}" typeof="skos:Concept" property="rdfs:label skos:prefLabel">{{ skill }}</a></li>
+                      {% for skill in profile.skills %}
+                      <li><a href="/skills/{{ skill.value }}" typeof="skos:Concept" property="rdfs:label skos:prefLabel">{{ skill.text }}</a></li>
                       {% endfor %}
                     </ul>
                   </div>

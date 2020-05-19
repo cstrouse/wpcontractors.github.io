@@ -3,7 +3,13 @@ layout: default
 ---
 
 {% if page.collection == "contractors" %}
-{% assign profiles = site.data.profiles | where: "titles", page.filter | slice: 0,8 %}
+{% assign profiles = "" | split: "" %}
+{% for profile in site.data.profiles %}
+{% assign has_title = profile.titles | where: "value", page.filter | size %}
+{% if has_title != 0 %}
+{% assign profiles = profiles | push: profile %}
+{% endif %}
+{% endfor %}
 <div class="block block-menu-block contractorsMenu block--none">
   <div class="block__content">
     <div class="menu-block-wrapper menu-block-6 menu-name-main-menu parent-mlid-669 menu-level-1 container">
@@ -11,7 +17,7 @@ layout: default
       <ul class="menu nav nav-pills nav-stacked">
         {% for contractor in site.contractors %}
         <li class="leaf">
-          <a href="/contractors/{{ contractor.role | downcase | replace: " ", "-" }}" title="{{ contractor.role }}">{{ contractor.role }}</a>
+          <a href="/contractors/{{ contractor.filter }}" title="{{ contractor.title }}">{{ contractor.title }}</a>
         </li>
         {% endfor %}
         <li class="last leaf menu-mlid-3516 menu-link-see-all">
@@ -22,7 +28,14 @@ layout: default
   </div>
 </div>
 {% else %}
-{% assign profiles = site.data.profiles | where: "skills", page.filter | slice: 0,8 %}
+{% assign profiles = site.data.profiles | where_exp: "skills", "skills.value == cli" | slice: 0,8 %}
+{% assign profiles = "" | split: "" %}
+{% for profile in site.data.profiles %}
+{% assign has_skill = profile.skills | where: "value", page.filter | size %}
+{% if has_title != 0 %}
+{% assign profiles = profiles | push: profile %}
+{% endif %}
+{% endfor %}
 {% endif %}
 <div class="block block-views sectionGrey block--none">
   <div class="block__content">
