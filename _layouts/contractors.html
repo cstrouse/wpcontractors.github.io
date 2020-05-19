@@ -28,11 +28,9 @@ layout: default
   </div>
 </div>
 {% else %}
-{% assign profiles = site.data.profiles | where_exp: "skills", "skills.value == cli" | slice: 0,8 %}
-{% assign profiles = "" | split: "" %}
 {% for profile in site.data.profiles %}
 {% assign has_skill = profile.skills | where: "value", page.filter | size %}
-{% if has_title != 0 %}
+{% if has_skill != 0 %}
 {% assign profiles = profiles | push: profile %}
 {% endif %}
 {% endfor %}

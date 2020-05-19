@@ -7,6 +7,9 @@ collections:
   contractors:
     output: true
     permalink: /:collection/:name
+  skills:
+    output: true
+    permalink: /:collection/:name
 
 # Build settings
 markdown: kramdown
@@ -27,6 +30,11 @@ defaults:
   -
     scope:
       type: "contractors"
+    values:
+      layout: "contractors"
+  -
+    scope:
+      type: "skills"
     values:
       layout: "contractors"
 sass:
