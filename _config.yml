@@ -15,11 +15,19 @@ collections:
 markdown: kramdown
 plugins:
   - jekyll-get-json
+  - jekyll-datapage-generator
   - jekyll-menus
 
 jekyll_get_json:
   - data: profiles
     json: 'https://8mrb1284ud.execute-api.us-east-1.amazonaws.com/dev/profiles?channel=CUN3PEEAY'
+
+page_gen:
+  - data: "profiles"
+    template: "contractor"
+    name: "id"
+    dir: "profile"
+    extension: "md"
 
 defaults:
   -

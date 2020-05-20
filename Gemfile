@@ -16,8 +16,9 @@ gem "jekyll", "~> 4.0"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-menus"
   gem "jekyll-get-json", git: "https://github.com/albertvolkman/jekyll-get-json"
+  gem "jekyll-datapage-generator"
+  gem "jekyll-menus"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
