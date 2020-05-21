@@ -28,3 +28,4 @@ cache:
   directories:
   - /home/travis/.rvm/
   - node_modules
+  - vendor/bundle
