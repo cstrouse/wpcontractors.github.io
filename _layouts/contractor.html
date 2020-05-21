@@ -43,7 +43,7 @@ class: "page-profile-main"
         <h2><span>Skills</span></h2>
         <div class="field field-name-field-skills field-type-taxonomy-term-reference field-label-hidden">
           <div class="field-items">
-            {% for skill in profile.skills %}
+            {% for skill in page.skills %}
             <div class="field-item">
               <a href="/skills/{{ skill.value }}" typeof="skos:Concept" property="rdfs:label skos:prefLabel">{{ skill.text }}</a>
             </div>
@@ -80,7 +80,7 @@ class: "page-profile-main"
         <div class="field field-name-field-english-proficiency field-type-taxonomy-term-reference field-label-above">
           <div class="field-label">English Proficiency:&nbsp;</div>
           <div class="field-items">
-            <div class="field-item even">{{ profile.english }}</div>
+            <div class="field-item even">{{ page.english }}</div>
           </div>
         </div>
       </section>
