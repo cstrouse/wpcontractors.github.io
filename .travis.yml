@@ -13,7 +13,6 @@ env:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
 
 sudo: false
-cache: bundler
 
 deploy:
   provider: pages
@@ -23,3 +22,9 @@ deploy:
   local-dir: _site
   on:
     branch: develop
+
+cache:
+  bundler: true
+  directories:
+  - /home/travis/.rvm/
+  - node_modules
